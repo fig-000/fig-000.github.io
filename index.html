@@ -1,14 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fig.000</title>
-    <link rel="stylesheet" href="styles/output.css">
-</head>
-<body>
-    <main class="flex justify-center items-center h-screen">
-        <h1>fig.000</h1>
+    <link rel="stylesheet" href="styles/output.css" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .footer-index span {
+        cursor: pointer;
+      }
+      .footer-index .active {
+        color: #000;
+      }
+
+      .figure-container {
+        width: max-content;
+        display: flex;
+        justify-content: start;
+        gap: 30px;
+        flex-shrink: 0;
+      }
+      .figure-container.h35 {
+        height: 35%;
+      }
+      .figure-container.h60 {
+        height: 60%;
+      }
+      .figure-container.h85 {
+        height: 85%;
+      }
+      .figure-container.h66 {
+        height: 66%;
+      }
+      .figure-container.h100 {
+        height: 100%;
+      }
+      .figure-number {
+        font-size: 25px;
+        line-height: 25px;
+      }
+      .figure-image {
+        width: auto;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="flex justify-between items-start h-[60px] px-[20px] py-[10px] fixed top-0 left-0 right-0"
+    >
+      <a href="/">
+        <img src="img/logo.png" alt="Logo" class="w-[108px] h-auto" />
+      </a>
+      <nav>
+        <ul class="flex gap-[240px] text-[13px]">
+          <li><a href="#" class="text-lg">PROJECT</a></li>
+          <li><a href="#" class="text-lg">PERSONAL PROJECT</a></li>
+          <li><a href="#" class="text-lg">ABOUT</a></li>
+        </ul>
+      </nav>
+      <img src="img/o_logo.png" alt="Logo" class="w-[19px] h-auto" />
+    </header>
+    <main
+      class="w-full h-screen flex justify-center items-center pt-[60px] pb-[58px]"
+    >
+      <section
+        class="w-full h-full scrollbar-hide overflow-x-auto pt-[31px] pb-[38px] pl-[13px] overflow-x-auto"
+      >
+        <div class="flex flex-rows w-full h-full items-end">
+          <div class="figure-container h35" style="z-index: 7">
+            <p class="figure-number">001</p>
+            <img src="img/001.png" alt="fig.001" class="figure-image" />
+          </div>
+          <div class="figure-container h60" style="z-index: 6">
+            <p class="figure-number">029</p>
+            <img src="img/029.png" alt="fig.029" class="figure-image" />
+          </div>
+          <div class="figure-container h100" style="z-index: 5">
+            <p class="figure-number">005</p>
+            <img src="img/005.png" alt="fig.005" class="figure-image" />
+          </div>
+          <div class="figure-container h85" style="z-index: 4">
+            <p class="figure-number">044</p>
+            <img src="img/044.png" alt="fig.044" class="figure-image" />
+          </div>
+          <div class="figure-container h66" style="z-index: 3">
+            <p class="figure-number">040</p>
+            <img src="img/040.png" alt="fig.040" class="figure-image" />
+          </div>
+          <div class="figure-container h85" style="z-index: 2">
+            <p class="figure-number">003</p>
+            <img src="img/003.png" alt="fig.003" class="figure-image" />
+          </div>
+          <div class="figure-container h100" style="z-index: 1">
+            <p class="figure-number">008</p>
+            <img src="img/008.png" alt="fig.008" class="figure-image" />
+          </div>
+        </div>
+      </section>
+
     </main>
-</body>
+    <footer
+      class="w-full h-[58px] flex justify-center items-center fixed bottom-0 left-0 right-0 px-[22px]"
+    >
+      <div
+        class="footer-index flex w-full h-full items-end gap-1 pb-[8px] text-[#C7C7C7] text-[13px] overflow-x-auto scrollbar-hide"
+      >
+        <span class="active">001</span>
+        <span>002</span>
+        <span class="active">003</span>
+        <span>004</span>
+        <span class="active">005</span>
+        <span>006</span>
+        <span>007</span>
+        <span class="active">008</span>
+        <span>009</span>
+        <span>010</span>
+        <span>011</span>
+        <span>012</span>
+        <span>013</span>
+        <span>014</span>
+        <span>015</span>
+        <span>016</span>
+        <span>017</span>
+        <span>018</span>
+        <span>019</span>
+        <span>020</span>
+        <span>021</span>
+        <span>022</span>
+        <span>023</span>
+        <span>024</span>
+        <span>025</span>
+        <span>026</span>
+        <span>027</span>
+        <span>028</span>
+        <span class="active">029</span>
+        <span>030</span>
+        <span>031</span>
+        <span>032</span>
+        <span>033</span>
+        <span>034</span>
+        <span>035</span>
+        <span>036</span>
+        <span>037</span>
+        <span>038</span>
+        <span>039</span>
+        <span class="active">040</span>
+        <span>041</span>
+        <span>042</span>
+        <span>043</span>
+        <span class="active">044</span>
+        <span>045</span>
+        <span>046</span>
+        <span>047</span>
+        <span>048</span>
+        <span>049</span>
+        <span>050</span>
+        <span>051</span>
+        <span>052</span>
+        <span>053</span>
+        <span>054</span>
+        <span>055</span>
+        <span>056</span>
+        <span>057</span>
+        <span>058</span>
+        <span>059</span>
+        <span>060</span>
+        <span>061</span>
+        <span>062</span>
+        <span class="active">063</span>
+        <span class="active">064</span>
+        <span>065</span>
+        <span>066</span>
+        <span>067</span>
+        <span>068</span>
+        <span>069</span>
+        <span>070</span>
+        <span>071</span>
+        <span>072</span>
+        <span>073</span>
+        <span>074</span>
+        <span>075</span>
+        <span>076</span>
+        <span>077</span>
+        <span>078</span>
+        <span>079</span>
+        <span>080</span>
+      </div>
+    </footer>
+  </body>
 </html>

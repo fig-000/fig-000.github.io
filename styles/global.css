@@ -1,0 +1,15 @@
+* {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.scrollbar-hide {
+    /* Firefox */
+    scrollbar-width: none;
+    /* Safari and Chrome */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
