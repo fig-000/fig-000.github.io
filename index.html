@@ -13,18 +13,32 @@
       rel="stylesheet"
     />
     <style>
+      html,
+      body {
+        height: 100%;
+      }
       .footer-index span {
         cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
       }
       .footer-index .active {
         color: #000;
       }
+      .footer-index span.centered::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 17px;
+        background-color: #000;
+      }
 
       .figure-container {
         width: max-content;
-        display: flex;
-        justify-content: start;
-        gap: 30px;
+        position: relative;
         flex-shrink: 0;
       }
       .figure-container.h35 {
@@ -33,22 +47,35 @@
       .figure-container.h60 {
         height: 60%;
       }
+      .figure-container.h66 {
+        height: 66%;
+      }
       .figure-container.h85 {
         height: 85%;
       }
-      .figure-container.h66 {
-        height: 66%;
+      .figure-container.h90 {
+        height: 90%;
       }
       .figure-container.h100 {
         height: 100%;
       }
       .figure-number {
+        position: absolute;
+        width: 120px;
+        text-align: right;
+        top: 0;
+        left: -136px;
         font-size: 25px;
         line-height: 25px;
       }
       .figure-image {
         width: auto;
         height: 100%;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
       }
     </style>
   </head>
@@ -57,7 +84,11 @@
       class="flex justify-between items-start h-[60px] px-[20px] py-[10px] fixed top-0 left-0 right-0"
     >
       <a href="/">
-        <img src="img/logo.png" alt="Logo" class="min-w-[108px] w-[108px] h-auto" />
+        <img
+          src="img/logo.png"
+          alt="Logo"
+          class="min-w-[108px] w-[108px] h-auto"
+        />
       </a>
       <nav>
         <ul class="hidden md:flex gap-[240px] text-[13px]">
@@ -66,15 +97,21 @@
           <li><a href="#" class="">ABOUT</a></li>
         </ul>
       </nav>
-      <img src="img/o_logo.png" alt="Logo" class="min-w-[19px] w-[19px] h-auto" />
+      <img
+        src="img/o_logo.png"
+        alt="Logo"
+        class="min-w-[19px] w-[19px] h-auto"
+      />
     </header>
     <main
       class="w-full h-screen flex justify-center items-center pt-[60px] pb-[58px]"
     >
       <section
-        class="w-full h-full scrollbar-hide overflow-x-auto pt-[31px] pb-[38px] pl-[13px] overflow-x-auto"
+        id="scroll-section"
+        class="w-full h-full scrollbar-hide overflow-x-auto pt-[31px] pb-[38px] pl-[13px] opacity-0"
       >
         <div class="flex flex-rows w-full h-full items-end">
+          <div style="min-width: 50vw; height: 100%"></div>
           <div class="figure-container h35" style="z-index: 7">
             <p class="figure-number">001</p>
             <img src="img/001.png" alt="fig.001" class="figure-image" />
@@ -95,7 +132,7 @@
             <p class="figure-number">040</p>
             <img src="img/040.png" alt="fig.040" class="figure-image" />
           </div>
-          <div class="figure-container h85" style="z-index: 2">
+          <div class="figure-container h90" style="z-index: 2">
             <p class="figure-number">003</p>
             <img src="img/003.png" alt="fig.003" class="figure-image" />
           </div>
@@ -103,16 +140,18 @@
             <p class="figure-number">008</p>
             <img src="img/008.png" alt="fig.008" class="figure-image" />
           </div>
+          <div style="min-width: 50vw; height: 100%"></div>
         </div>
       </section>
-
     </main>
     <footer
-      class="w-full h-[58px] flex justify-center items-center fixed bottom-0 left-0 right-0 px-[22px]"
+      class="w-full h-[58px] flex justify-center items-center fixed bottom-0 left-0 right-0"
     >
       <div
+        id="footer-index"
         class="footer-index flex w-full h-full items-end gap-1 pb-[8px] text-[#C7C7C7] text-[13px] overflow-x-auto scrollbar-hide"
       >
+        <div style="min-width: 50vw; height: 100%"></div>
         <span class="active">001</span>
         <span>002</span>
         <span class="active">003</span>
@@ -193,7 +232,143 @@
         <span>078</span>
         <span>079</span>
         <span>080</span>
+        <div style="min-width: 50vw; height: 100%"></div>
       </div>
     </footer>
+    <script>
+      const ratioMap = {
+        h60: 0.4,
+        h66: 0.145,
+        h85: 0.26,
+        h100: 0.31,
+      };
+
+      // 초기 스크롤 위치 설정 함수
+      function setInitialScroll() {
+        const scrollSection = document.querySelector("#scroll-section");
+        const figureContainers = document.querySelectorAll(".figure-container");
+        const firstContainer = figureContainers[0];
+        scrollSection.scrollLeft = window.innerWidth / 2 - 70;
+
+        const footerIndex = document.querySelector("#footer-index");
+        footerIndex.scrollLeft = window.innerWidth / 2 - 22;
+      }
+
+      // 컨테이너 마진 설정을 위한 ResizeObserver 설정
+      function setupResizeObserver() {
+        const scrollSection = document.querySelector("#scroll-section");
+        const figureContainers = document.querySelectorAll(".figure-container");
+
+        const ro = new ResizeObserver((entries) => {
+          entries.forEach((entry) => {
+            const container = entry.target;
+            const hClass = Array.from(container.classList).find((cls) =>
+              /^h\d+$/.test(cls)
+            );
+            if (!hClass || !ratioMap[hClass]) return;
+            const actualWidth = container.offsetWidth;
+            const marginLeftPx = actualWidth * ratioMap[hClass];
+            container.style.marginLeft = `-${marginLeftPx}px`;
+          });
+          scrollSection.style.opacity = 1;
+        });
+
+        figureContainers.forEach((container) => {
+          ro.observe(container);
+        });
+      }
+
+      // z-index 관리
+      const containers = document.querySelectorAll(".figure-container");
+      const originalZIndexes = new Map();
+      containers.forEach((container) => {
+        const currentZIndex = parseInt(container.style.zIndex) || 7;
+        originalZIndexes.set(container, currentZIndex);
+      });
+
+      // 스크롤 이벤트 핸들러
+      function handleScroll(e) {
+        e.preventDefault();
+        const horizontalSection = document.querySelector("#scroll-section");
+        const multiplier = e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? 800 : 1;
+
+        // 스크롤 위치 계산
+        const currentScrollLeft = horizontalSection.scrollLeft;
+        const viewportWidth = horizontalSection.clientWidth;
+        const firstContainer = containers[0];
+        const lastContainer = containers[containers.length - 1];
+
+        const firstContainerCenter =
+          firstContainer.offsetLeft + firstContainer.offsetWidth / 2;
+        const lastContainerCenter =
+          lastContainer.offsetLeft + lastContainer.offsetWidth / 2;
+
+        const minScroll = (firstContainerCenter - viewportWidth / 2);
+        const maxScroll = (lastContainerCenter - viewportWidth / 2);
+
+        // 새로운 스크롤 위치 계산 및 적용
+        let newScrollLeft = currentScrollLeft;
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          newScrollLeft += e.deltaX * multiplier;
+        } else {
+          newScrollLeft += e.deltaY * multiplier;
+        }
+        newScrollLeft = Math.max(minScroll, Math.min(maxScroll, newScrollLeft));
+        horizontalSection.scrollLeft = newScrollLeft;
+
+        // 중앙 이미지 체크 및 처리
+        const centerX =
+          horizontalSection.scrollLeft + horizontalSection.clientWidth / 2;
+        const footerIndex = document.querySelector(".footer-index");
+        let isCentered = false;
+
+        containers.forEach((container) => {
+          const rect = container.getBoundingClientRect();
+          const containerCenterX = container.offsetLeft + rect.width / 2;
+
+          if (Math.abs(containerCenterX - centerX) < 50) {
+            isCentered = true;
+            container.style.zIndex =
+              Math.max(...Array.from(originalZIndexes.values())) + 1;
+            const figureNumber =
+              container.querySelector(".figure-number").textContent;
+
+            const footerNumber = Array.from(
+              footerIndex.querySelectorAll("span")
+            ).find((span) => span.textContent === figureNumber);
+
+            if (footerNumber) {
+              footerNumber.classList.add("centered");
+              const footerScrollLeft =
+                footerNumber.offsetLeft -
+                footerIndex.clientWidth / 2 +
+                footerNumber.offsetWidth / 2;
+              footerIndex.scrollTo({
+                left: footerScrollLeft,
+                behavior: "smooth",
+              });
+            }
+          } else {
+            container.style.zIndex = originalZIndexes.get(container);
+          }
+        });
+
+        if (!isCentered) {
+          const prevCentered = footerIndex.querySelector("span.centered");
+          if (prevCentered) {
+            prevCentered.classList.remove("centered");
+          }
+        }
+      }
+
+      // 이벤트 리스너 설정
+      window.addEventListener("DOMContentLoaded", () => {
+        setInitialScroll();
+        setupResizeObserver();
+      });
+
+      window.addEventListener("load", setInitialScroll);
+      window.addEventListener("wheel", handleScroll, { passive: false });
+    </script>
   </body>
 </html>
