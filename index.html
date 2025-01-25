@@ -316,6 +316,15 @@
         newScrollLeft = Math.max(minScroll, Math.min(maxScroll, newScrollLeft));
         horizontalSection.scrollLeft = newScrollLeft;
 
+        updateCenteredImage(horizontalSection);
+      }
+
+      function handleTouch(e) {
+        const horizontalSection = document.querySelector("#scroll-section");
+        updateCenteredImage(horizontalSection);
+      }
+
+      function updateCenteredImage(horizontalSection) {
         // 중앙 이미지 체크 및 처리
         const centerX =
           horizontalSection.scrollLeft + horizontalSection.clientWidth / 2;
@@ -369,6 +378,8 @@
 
       window.addEventListener("load", setInitialScroll);
       window.addEventListener("wheel", handleScroll, { passive: false });
+      window.addEventListener("scroll", handleTouch, { passive: true });
+      window.addEventListener("touchmove", handleTouch, { passive: true });
     </script>
   </body>
 </html>
