@@ -115,6 +115,12 @@ const ratioMap = {
         ).find((span) => span.textContent === figureNumber);
 
         if (footerNumber) {
+          // 이전 centered 클래스 제거
+          const prevCentered = footerIndex.querySelector("span.centered");
+          if (prevCentered) {
+            prevCentered.classList.remove("centered");
+          }
+          
           footerNumber.classList.add("centered");
           const footerScrollLeft =
             footerNumber.offsetLeft -
