@@ -20,8 +20,6 @@ const ratioMap = {
   function setupResizeObserver() {
     const scrollSection = document.querySelector("#scroll-section");
     const figureContainers = document.querySelectorAll(".figure-container");
-    let processedContainers = 0;
-    const totalContainers = figureContainers.length;
 
     const ro = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
@@ -33,13 +31,10 @@ const ratioMap = {
         const actualWidth = container.offsetWidth;
         const marginLeftPx = actualWidth * ratioMap[hClass];
         container.style.marginLeft = `-${marginLeftPx}px`;
-        processedContainers++;
-
-        // 모든 컨테이너가 처리되었을 때만 opacity 설정
-        if (processedContainers === totalContainers) {
-          scrollSection.style.opacity = 1;
-        }
       });
+
+      // 모든 컨테이너의 마진 설정이 완료된 후 opacity 설정
+      scrollSection.style.opacity = 1;
     });
 
     figureContainers.forEach((container) => {
