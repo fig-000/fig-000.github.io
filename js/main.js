@@ -143,13 +143,12 @@ function updateCenteredImage(horizontalSection) {
 }
 
 // 이벤트 리스너 설정
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   setInitialScroll();
   setupResizeObserver();
 });
 
 const scrollSection = document.querySelector("#scroll-section");
-window.addEventListener("load", setInitialScroll);
 scrollSection.addEventListener("wheel", handleScroll, { passive: false });
 scrollSection.addEventListener("scroll", handleTouch, { passive: true });
 scrollSection.addEventListener("touchmove", handleTouch, { passive: true });
