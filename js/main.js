@@ -32,13 +32,14 @@ const ratioMap = {
         const marginLeftPx = actualWidth * ratioMap[hClass];
         container.style.marginLeft = `-${marginLeftPx}px`;
       });
+
+      // 모든 컨테이너의 마진 설정이 완료된 후 opacity 설정
+      scrollSection.style.opacity = 1;
     });
 
     figureContainers.forEach((container) => {
       ro.observe(container);
     });
-
-    scrollSection.style.opacity = 1;
   }
 
   // z-index 관리
