@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fig.000</title>
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      .footer-index span,
+      #detail-view-index span {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .footer-index .active {
+        color: #000;
+      }
+      .footer-index span.centered::before,
+      #detail-view-index span.centered::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 17px;
+        background-color: #000;
+      }
+      .figure-container {
+        width: max-content;
+        position: relative;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .figure-container.h35 {
+        height: 35%;
+      }
+      .figure-container.h60 {
+        height: 60%;
+      }
+      .figure-container.h66 {
+        height: 66%;
+      }
+      .figure-container.h85 {
+        height: 85%;
+      }
+      .figure-container.h90 {
+        height: 90%;
+      }
+      .figure-container.h100 {
+        height: 100%;
+      }
+      .figure-number {
+        position: absolute;
+        width: 120px;
+        text-align: right;
+        top: 0;
+        left: -136px;
+        font-size: 25px;
+        line-height: 25px;
+      }
+      .figure-image {
+        width: auto;
+        height: 100%;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+      }
+      #detail-view-index span {
+        cursor: pointer;
+      }
+      ul li a.active {
+        text-decoration: underline;
+      }
+      .project-item {
+        cursor: pointer;
+        display: none;
+      }
+      .project-item.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="flex justify-between items-start h-[60px] px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
+      style="z-index: 1001"
+    >
+      <a href="/">
+        <img
+          src="/img/logo.png"
+          alt="Logo"
+          class="min-w-[108px] w-[108px] h-auto"
+        />
+      </a>
+      <div class="hidden md:flex flex-col justify-center items-start gap-[1px]">
+        <nav>
+          <ul class="flex gap-[246px] text-[13px]">
+            <li>
+              <a href="/project" class="hover:underline">PROJECT</a>
+            </li>
+            <li>
+              <a href="/personal" class="hover:underline">PERSONAL PROJECT</a>
+            </li>
+            <li><a href="/about" class="hover:underline active">ABOUT</a></li>
+          </ul>
+        </nav>
+        <ul class="hidden gap-[48px] text-[13px]" id="category-filter">
+          <li>
+            <a class="cursor-pointer hover:underline active" data-category="ALL"
+              >ALL</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="FASHION"
+              >FASHION</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="LIVING"
+              >LIVING</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="BEAUTY"
+              >BEAUTY</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="CELEBRITY"
+              >CELEBRITY</a
+            >
+          </li>
+        </ul>
+      </div>
+      <img
+        src="/img/o_logo.png"
+        alt="Logo"
+        class="min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
+        id="menu-toggle"
+      />
+      <div id="side-menu">
+        <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]">PORTFOLIO DOWNLOAD</a>
+      </div>
+    </header>
+
+    <main class="w-full h-screen flex justify-center items-center pt-[60px]">
+      <section
+        class="w-full h-full px-[17px] pt-[10px] flex flex-row gap-[20px]"
+      >
+        <div class="w-3/5">
+          <p class="text-[30px] leading-[32px]" style="font-weight: 600">
+            fig.000 is a creative studio specializing in art direction, fashion
+            styling, and set design in photography. Rooted in the concept of
+            "fig.," which represents figures, shapes, and the process of
+            development, we transform ideas into visually compelling stories.
+            Whether curating outfits, designing sets, or directing visual
+            narratives, we blend art and fashion to create work that is both
+            meaningful and impactful, with a focus on the evolving nature of
+            creativity.
+          </p>
+        </div>
+        <div class="w-2/5 text-[16px] leading-[20px] uppercase">
+          <span class="" style="font-weight: 600">ADDRESS</span><br />
+          25, Dongho-ro 34-gil, Jung-gu, Seoul<br />
+          <a href="https://www.instagram.com/fig.000" target="_blank">
+            <span class="" style="font-weight: 600">INSTAGRAM</span><br />
+            @fig.000<br />
+          </a>
+          <a href="mailto:fig.000@gmail.com" target="_blank">
+            <span class="" style="font-weight: 600">EMAIL</span> <br />
+            fig.000@Gmail.com<br />
+          </a>
+        </div>
+      </section>
+    </main>
+    <script src="/js/portfolio_menu.js"></script>
+    <script>
+      $(document).ready(function () {
+        portfolio_menu();
+      });
+    </script>
+  </body>
+</html>

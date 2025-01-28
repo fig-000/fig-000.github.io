@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fig.000</title>
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      .footer-index span,
+      #detail-view-index span {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .footer-index .active {
+        color: #000;
+      }
+      .footer-index span.centered::before,
+      #detail-view-index span.centered::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 17px;
+        background-color: #000;
+      }
+      .figure-container {
+        width: max-content;
+        position: relative;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .figure-container.h35 {
+        height: 35%;
+      }
+      .figure-container.h60 {
+        height: 60%;
+      }
+      .figure-container.h66 {
+        height: 66%;
+      }
+      .figure-container.h85 {
+        height: 85%;
+      }
+      .figure-container.h90 {
+        height: 90%;
+      }
+      .figure-container.h100 {
+        height: 100%;
+      }
+      .figure-number {
+        position: absolute;
+        width: 120px;
+        text-align: right;
+        top: 0;
+        left: -136px;
+        font-size: 25px;
+        line-height: 25px;
+      }
+      .figure-image {
+        width: auto;
+        height: 100%;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+      }
+      #detail-view-index span {
+        cursor: pointer;
+      }
+      ul li a.active {
+        text-decoration: underline;
+      }
+      .project-item {
+        cursor: pointer;
+        display: none;
+      }
+      .project-item.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="flex justify-between items-start h-[60px] px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
+      style="z-index: 1001"
+    >
+      <a href="/">
+        <img
+          src="/img/logo.png"
+          alt="Logo"
+          class="min-w-[108px] w-[108px] h-auto"
+        />
+      </a>
+      <div class="hidden md:flex flex-col justify-center items-start gap-[1px]">
+        <nav>
+          <ul class="flex gap-[246px] text-[13px]">
+            <li>
+              <a href="/project" class="hover:underline active">PROJECT</a>
+            </li>
+            <li>
+              <a href="/personal" class="hover:underline">PERSONAL PROJECT</a>
+            </li>
+            <li><a href="/about" class="hover:underline">ABOUT</a></li>
+          </ul>
+        </nav>
+        <ul class="flex gap-[48px] text-[13px]" id="category-filter">
+          <li>
+            <a class="cursor-pointer hover:underline active" data-category="ALL"
+              >ALL</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="FASHION"
+              >FASHION</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="LIVING"
+              >LIVING</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="BEAUTY"
+              >BEAUTY</a
+            >
+          </li>
+          <li>
+            <a class="cursor-pointer hover:underline" data-category="CELEBRITY"
+              >CELEBRITY</a
+            >
+          </li>
+        </ul>
+      </div>
+      <img
+        src="/img/o_logo.png"
+        alt="Logo"
+        class="min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
+        id="menu-toggle"
+      />
+      <div id="side-menu">
+        <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]">PORTFOLIO DOWNLOAD</a>
+      </div>
+    </header>
+
+    <div
+      id="detail-view"
+      class="absolute top-[60px] inset-0 bg-white hidden"
+      style="z-index: 1000"
+    >
+      <div
+        id="detail-view-content"
+        class="relative w-full h-full overflow-y-scroll pb-[20px]"
+      >
+        <section class="w-full h-full">
+          <div class="flex">
+            <div class="w-1/2 h-full">
+              <img
+                src="/img/PJ-DETAIL-1.png"
+                alt="fig.001"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="w-1/2 h-full">
+              <img
+                src="/img/PJ-DETAIL-2.png"
+                alt="fig.001"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+          <div class="flex">
+            <div class="w-1/2 h-full">
+              <img
+                src="/img/PJ-DETAIL-3.png"
+                alt="fig.001"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="w-1/2 h-full">
+              <img
+                src="/img/PJ-DETAIL-4.png"
+                alt="fig.001"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+          <div class="">
+            <img
+              src="/img/PJ-DETAIL-5.png"
+              alt="fig.001"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+          <article class="w-full mt-[18px] px-[15px] pb-[78px]">
+            <div
+              class="flex justify-between items-start text-[15px] leading-[18px] font-semibold pb-[50px]"
+            >
+              <div class="w-1/2 flex justify-between items-start">
+                <p class="w-1/2">NACHE<br />NEW SEASON CAMPAIGN</p>
+                <p class="w-1/2">
+                  PHOTO. JANE DOE
+                  <br />
+                  LIGHT. JOHN DOE
+                  <br />
+                  ART DIRECTING. fig.000
+                </p>
+              </div>
+              <div class="w-1/2">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  cursus felis eget massa tincidunt, sed rhoncus ligula
+                  imperdiet. Ut lacinia, urna sit amet ullamcorper accumsan,
+                  arcu urna rutrum risus, fermentum semper elit metus eu orci.
+                  Morbi iaculis mauris arcu, id mattis est cursus sit amet.
+                  Curabitur eu risus eget turpis vestibulum commodo condimentum
+                  maximus risus. Maecenas eget scelerisque sem. Duis eget libero
+                  id nisi consectetur consequat. Donec feugiat erat nec justo
+                  imperdiet efficitur.
+                </p>
+              </div>
+            </div>
+            <div
+              class="mt-[49px] text-[15px] font-semibold flex flex-row justify-between"
+            >
+              <div class="w-1/2 flex flex-row items-center justify-between">
+                <a href="#" class="flex flex-row items-center gap-[4px]">
+                  <img
+                    src="/img/arrow_1.png"
+                    alt="arrow"
+                    class="w-[33px] h-auto"
+                  />
+                  PREV
+                </a>
+                <a href="#" class="flex flex-row items-center gap-[8px]">
+                  NEXT
+                  <img
+                    src="/img/arrow_2.png"
+                    alt="arrow"
+                    class="w-[33px] h-auto"
+                  />
+                </a>
+              </div>
+              <div class="mt-[10px] flex flex-row items-center justify-between">
+                <a
+                  class="cursor-pointer flex flex-row items-center gap-[20px]"
+                  onclick="closeDetail()"
+                >
+                  BACK TO LIST
+                  <img
+                    src="/img/x_btn.png"
+                    alt="arrow"
+                    class="w-[26px] h-auto"
+                  />
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <div
+        class="w-full h-[58px] bg-white flex justify-center items-center fixed bottom-0 left-0 right-0"
+      >
+        <div
+          id="detail-view-index"
+          class="flex w-full h-full items-end gap-1 pb-[8px] text-[13px] overflow-x-auto scrollbar-hide"
+        >
+          <div style="min-width: 50vw; height: 100%"></div>
+          <span class="active">001</span>
+          <span>002</span>
+          <span class="active">003</span>
+          <span>004</span>
+          <span class="active">005</span>
+          <span>006</span>
+          <span>007</span>
+          <span class="active">008</span>
+          <span>009</span>
+          <span>010</span>
+          <span>011</span>
+          <span>012</span>
+          <span>013</span>
+          <span>014</span>
+          <span>015</span>
+          <span>016</span>
+          <span>017</span>
+          <span>018</span>
+          <span>019</span>
+          <span>020</span>
+          <span>021</span>
+          <span>022</span>
+          <span>023</span>
+          <span>024</span>
+          <span>025</span>
+          <span>026</span>
+          <span>027</span>
+          <span>028</span>
+          <span class="active">029</span>
+          <span>030</span>
+          <span>031</span>
+          <span>032</span>
+          <span>033</span>
+          <span>034</span>
+          <span>035</span>
+          <span>036</span>
+          <span>037</span>
+          <span>038</span>
+          <span>039</span>
+          <span class="active">040</span>
+          <span>041</span>
+          <span>042</span>
+          <span>043</span>
+          <span class="active">044</span>
+          <span>045</span>
+          <span>046</span>
+          <span>047</span>
+          <span>048</span>
+          <span>049</span>
+          <span>050</span>
+          <span>051</span>
+          <span>052</span>
+          <span>053</span>
+          <span>054</span>
+          <span>055</span>
+          <span>056</span>
+          <span>057</span>
+          <span>058</span>
+          <span>059</span>
+          <span>060</span>
+          <span>061</span>
+          <span>062</span>
+          <span class="active">063</span>
+          <span class="active">064</span>
+          <span>065</span>
+          <span>066</span>
+          <span>067</span>
+          <span>068</span>
+          <span>069</span>
+          <span>070</span>
+          <span>071</span>
+          <span>072</span>
+          <span>073</span>
+          <span>074</span>
+          <span>075</span>
+          <span>076</span>
+          <span>077</span>
+          <span>078</span>
+          <span>079</span>
+          <span>080</span>
+          <div style="min-width: 50vw; height: 100%"></div>
+        </div>
+      </div>
+    </div>
+    <main
+      class="w-full h-screen flex justify-center items-center pt-[60px] pb-[58px]"
+    >
+      <section class="w-full h-full scrollbar-hide overflow-x-auto px-[17px]">
+        <div class="grid grid-cols-5 gap-[10px]">
+          <div
+            class="project-item show relative group"
+            data-title="NACHE\nNEW SEASON CAMPAIGN"
+            data-category="FASHION"
+            data-num="001"
+          >
+            <img
+              src="/img/PJ-THUMB-1.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                NACHE<br />NEW SEASON CAMPAIGN
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="GENTLE MONSTER\nSUMMER COLLECTION"
+            data-category="FASHION"
+            data-num="002"
+          >
+            <img
+              src="/img/PJ-THUMB-2.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                GENTLE MONSTER<br />SUMMER COLLECTION
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="SAMSUNG\nLIFESTYLE TV"
+            data-category="LIVING"
+            data-num="003"
+          >
+            <img
+              src="/img/PJ-THUMB-3.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                SAMSUNG<br />LIFESTYLE TV
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="SULWHASOO\nBRAND CAMPAIGN"
+            data-category="BEAUTY"
+            data-num="004"
+          >
+            <img
+              src="/img/PJ-THUMB-4.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                SULWHASOO<br />BRAND CAMPAIGN
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="HERA\nSENSUAL POWDER MATTE"
+            data-category="BEAUTY"
+            data-num="005"
+          >
+            <img
+              src="/img/PJ-THUMB-5.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                HERA<br />SENSUAL POWDER MATTE
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="GENTLE MONSTER\nWINTER COLLECTION"
+            data-category="FASHION"
+            data-num="006"
+          >
+            <img
+              src="/img/PJ-THUMB-6.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                GENTLE MONSTER<br />WINTER COLLECTION
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="SAMSUNG\nBESPOKE"
+            data-category="LIVING"
+            data-num="007"
+          >
+            <img
+              src="/img/PJ-THUMB-7.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                SAMSUNG<br />BESPOKE
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="LANEIGE\nNEO CUSHION"
+            data-category="BEAUTY"
+            data-num="008"
+          >
+            <img
+              src="/img/PJ-THUMB-8.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                LANEIGE<br />NEO CUSHION
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="JENNIE\nCALVIN KLEIN"
+            data-category="CELEBRITY"
+            data-num="009"
+          >
+            <img
+              src="/img/PJ-THUMB-9.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                JENNIE<br />CALVIN KLEIN
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="GENTLE MONSTER\nFALL CAMPAIGN"
+            data-category="FASHION"
+            data-num="010"
+          >
+            <img
+              src="/img/PJ-THUMB-10.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                GENTLE MONSTER<br />FALL CAMPAIGN
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="SAMSUNG\nGALAXY Z"
+            data-category="LIVING"
+            data-num="011"
+          >
+            <img
+              src="/img/PJ-THUMB-11.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                SAMSUNG<br />GALAXY Z
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="HERA\nRED VIBE"
+            data-category="BEAUTY"
+            data-num="012"
+          >
+            <div
+              class="w-full aspect-[4/5] object-cover bg-[#A43D3D] group-hover:opacity-20 transition-opacity"
+            ></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                HERA<br />RED VIBE
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="BLACKPINK\nPINK VENOM"
+            data-category="CELEBRITY"
+            data-num="013"
+          >
+            <img
+              src="/img/PJ-THUMB-13.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                BLACKPINK<br />PINK VENOM
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="GENTLE MONSTER\nTAME YOUR ZESTY"
+            data-category="FASHION"
+            data-num="014"
+          >
+            <img
+              src="/img/PJ-THUMB-14.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                GENTLE MONSTER<br />TAME YOUR ZESTY
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="SAMSUNG\nGALAXY WATCH"
+            data-category="LIVING"
+            data-num="015"
+          >
+            <img
+              src="/img/PJ-THUMB-15.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                SAMSUNG<br />GALAXY WATCH
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="SULWHASOO\nFIRST CARE"
+            data-category="BEAUTY"
+            data-num="016"
+          >
+            <img
+              src="/img/PJ-THUMB-16.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                SULWHASOO<br />FIRST CARE
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="IU\nGUCCI"
+            data-category="CELEBRITY"
+            data-num="017"
+          >
+            <img
+              src="/img/PJ-THUMB-17.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">IU<br />GUCCI</p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="GENTLE MONSTER\nSPRING COLLECTION"
+            data-category="FASHION"
+            data-num="018"
+          >
+            <img
+              src="/img/PJ-THUMB-18.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                GENTLE MONSTER<br />SPRING COLLECTION
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="LANEIGE\nPERFECT RENEW"
+            data-category="BEAUTY"
+            data-num="019"
+          >
+            <div
+              class="w-full aspect-[4/5] object-cover bg-[#8776F0] group-hover:opacity-20 transition-opacity"
+            ></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                LANEIGE<br />PERFECT RENEW
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-item show relative group"
+            data-title="GENTLE MONSTER\nSPRING COLLECTION"
+            data-category="FASHION"
+            data-num="020"
+          >
+            <img
+              src="/img/PJ-THUMB-20.png"
+              alt="fig.001"
+              class="w-full aspect-[4/5] object-cover group-hover:opacity-20 transition-opacity"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-center whitespace-pre-line p-4">
+                GENTLE MONSTER<br />SPRING COLLECTION
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="w-full h-[58px] flex justify-center items-center fixed bottom-0 left-0 right-0"
+    >
+      <div
+        id="sub-footer-index"
+        class="footer-index flex w-full h-full items-end gap-1 pb-[8px] text-black text-[13px] overflow-x-auto scrollbar-hide"
+      >
+        <div style="min-width: 50vw; height: 100%"></div>
+        <span class="active">001</span>
+        <span>002</span>
+        <span class="active">003</span>
+        <span>004</span>
+        <span class="active">005</span>
+        <span>006</span>
+        <span>007</span>
+        <span class="active">008</span>
+        <span>009</span>
+        <span>010</span>
+        <span>011</span>
+        <span>012</span>
+        <span>013</span>
+        <span>014</span>
+        <span>015</span>
+        <span>016</span>
+        <span>017</span>
+        <span>018</span>
+        <span>019</span>
+        <span>020</span>
+        <span>021</span>
+        <span>022</span>
+        <span>023</span>
+        <span>024</span>
+        <span>025</span>
+        <span>026</span>
+        <span>027</span>
+        <span>028</span>
+        <span class="active">029</span>
+        <span>030</span>
+        <span>031</span>
+        <span>032</span>
+        <span>033</span>
+        <span>034</span>
+        <span>035</span>
+        <span>036</span>
+        <span>037</span>
+        <span>038</span>
+        <span>039</span>
+        <span class="active">040</span>
+        <span>041</span>
+        <span>042</span>
+        <span>043</span>
+        <span class="active">044</span>
+        <span>045</span>
+        <span>046</span>
+        <span>047</span>
+        <span>048</span>
+        <span>049</span>
+        <span>050</span>
+        <span>051</span>
+        <span>052</span>
+        <span>053</span>
+        <span>054</span>
+        <span>055</span>
+        <span>056</span>
+        <span>057</span>
+        <span>058</span>
+        <span>059</span>
+        <span>060</span>
+        <span>061</span>
+        <span>062</span>
+        <span class="active">063</span>
+        <span class="active">064</span>
+        <span>065</span>
+        <span>066</span>
+        <span>067</span>
+        <span>068</span>
+        <span>069</span>
+        <span>070</span>
+        <span>071</span>
+        <span>072</span>
+        <span>073</span>
+        <span>074</span>
+        <span>075</span>
+        <span>076</span>
+        <span>077</span>
+        <span>078</span>
+        <span>079</span>
+        <span>080</span>
+        <div style="min-width: 50vw; height: 100%"></div>
+      </div>
+    </footer>
+    <script src="/js/portfolio_menu.js"></script>
+    <script>
+      let currentDetailIndex = null;
+      $(document).ready(function () {
+        portfolio_menu();
+        // 카테고리 필터링
+        $("#category-filter a").click(function (e) {
+          e.preventDefault();
+          const category = $(this).data("category");
+
+          // 활성화된 링크 스타일 변경
+          $("#category-filter a").removeClass("active");
+          $(this).addClass("active");
+
+          // 모든 프로젝트 아이템 숨기기
+          $(".project-item").removeClass("show");
+
+          // 선택된 카테고리가 ALL이면 모든 아이템 표시
+          if (category === "ALL") {
+            $(".project-item").addClass("show");
+          } else {
+            // 선택된 카테고리와 일치하는 아이템만 표시
+            $(`.project-item[data-category="${category}"]`).addClass("show");
+          }
+        });
+
+        // 프로젝트 아이템 hover 이벤트 추가
+        $(".project-item").hover(
+          function() {
+            const num = $(this).data("num");
+            const subFooterIndex = document.querySelector("#sub-footer-index");
+            const targetSpan = Array.from(
+              subFooterIndex.querySelectorAll("span")
+            ).find((span) => span.textContent === num);
+
+            if (targetSpan) {
+              // 이전 centered 클래스 제거
+              const prevCentered = subFooterIndex.querySelector("span.centered");
+              if (prevCentered) {
+                prevCentered.classList.remove("centered");
+              }
+
+              // 새로운 span에 centered 클래스 추가
+              targetSpan.classList.add("centered");
+
+              // 해당 숫자를 화면 중앙으로 스크롤
+              const scrollLeft =
+                targetSpan.offsetLeft -
+                subFooterIndex.clientWidth / 2 +
+                targetSpan.offsetWidth / 2;
+
+              subFooterIndex.scrollTo({
+                left: scrollLeft,
+                behavior: "smooth",
+              });
+            }
+          },
+          function() {
+            // hover out - centered 클래스 제거
+            const subFooterIndex = document.querySelector("#sub-footer-index");
+            const centered = subFooterIndex.querySelector("span.centered");
+            if (centered) {
+              centered.classList.remove("centered");
+            }
+          }
+        );
+
+        $(".project-item").click(function () {
+          const title = $(this).data("title");
+          const num = $(this).data("num");
+
+          $("#detail-view").removeClass("hidden").addClass("flex");
+          $("#detail-view-content").scrollTop(0);
+          $("body").addClass("overflow-hidden");
+
+          // 디테일 뷰 인덱스에서 해당 숫자 찾기
+          const detailIndex = document.querySelector("#detail-view-index");
+          const targetSpan = Array.from(
+            detailIndex.querySelectorAll("span")
+          ).find((span) => span.textContent === num);
+
+          if (targetSpan) {
+            currentDetailIndex = targetSpan;
+            // 이전 centered 클래스 제거
+            const prevCentered = detailIndex.querySelector("span.centered");
+            if (prevCentered) {
+              prevCentered.classList.remove("centered");
+            }
+
+            // 새로운 span에 centered 클래스 추가
+            targetSpan.classList.add("centered");
+
+            // 해당 숫자를 화면 중앙으로 스크롤
+            const scrollLeft =
+              targetSpan.offsetLeft -
+              detailIndex.clientWidth / 2 +
+              targetSpan.offsetWidth / 2;
+            detailIndex.scrollLeft = scrollLeft;
+          }
+        });
+      });
+
+      function closeDetail() {
+        $("#detail-view").removeClass("flex").addClass("hidden");
+        $("body").removeClass("overflow-hidden");
+      }
+
+      const subFooterIndex = document.querySelector("#sub-footer-index");
+      if (subFooterIndex) {
+        subFooterIndex.scrollLeft = window.innerWidth * 0.5 - 22;
+      }
+      
+      $("#detail-view-index, #sub-footer-index").on(
+        "scroll wheel",
+        function (e) {
+          if (
+            e.type === "wheel" &&
+            Math.abs(e.originalEvent.deltaX) < Math.abs(e.originalEvent.deltaY)
+          ) {
+            e.preventDefault();
+            const scrollAmount = e.originalEvent.deltaY;
+            this.scrollLeft += scrollAmount;
+          }
+          handleDetailScroll(e);
+        }
+      );
+
+      function handleDetailScroll(e) {
+        const detailIndex = document.querySelector("#detail-view-index");
+        const spans = detailIndex.querySelectorAll("#detail-view-index span");
+        const centerX = detailIndex.scrollLeft + detailIndex.clientWidth / 2;
+        const viewportWidth = detailIndex.clientWidth;
+
+        // 첫 번째와 마지막 span의 중앙 위치 계산
+        const firstSpan = spans[0];
+        const lastSpan = spans[spans.length - 1];
+        const firstSpanCenter =
+          firstSpan.offsetLeft + firstSpan.offsetWidth / 2;
+        const lastSpanCenter = lastSpan.offsetLeft + lastSpan.offsetWidth / 2;
+
+        // 스크롤 제한 설정
+        const minScroll = firstSpanCenter - viewportWidth / 2;
+        const maxScroll = lastSpanCenter - viewportWidth / 2;
+
+        // 현재 스크롤 위치를 제한 범위 내로 조정
+        detailIndex.scrollLeft = Math.max(
+          minScroll,
+          Math.min(maxScroll, detailIndex.scrollLeft)
+        );
+
+        let closestSpan = null;
+        let minDistance = Infinity;
+
+        spans.forEach((span) => {
+          const spanCenter = span.offsetLeft + span.offsetWidth / 2;
+          const distance = Math.abs(spanCenter - centerX);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSpan = span;
+          }
+        });
+
+        // detail-view-index인 경우에만 centered 클래스 관련 로직 실행
+        if (e.currentTarget.id === "detail-view-index") {
+          const prevCentered = detailIndex.querySelector("span.centered");
+
+          if (closestSpan && minDistance < closestSpan.offsetWidth / 2) {
+            if (prevCentered && prevCentered !== closestSpan) {
+              prevCentered.classList.remove("centered");
+            }
+            if (currentDetailIndex === closestSpan) {
+              closestSpan.classList.add("centered");
+            }
+          } else {
+            if (prevCentered) {
+              prevCentered.classList.remove("centered");
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

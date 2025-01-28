@@ -13,3 +13,20 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
 }
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    right: -388px;
+    width: 388px;
+    height: 100vh;
+    background-color: #DDDDDDC9;
+    transition: right 0.3s ease-in-out;
+    z-index: 100;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+#side-menu.open {
+    right: 0;
+}
