@@ -14,6 +14,7 @@ function setInitialScroll() {
 
   const footerIndex = document.querySelector("#footer-index");
   footerIndex.scrollLeft = window.innerWidth / 2 - 22;
+  footerIndex.style.opacity = 1;
 }
 
 // 컨테이너 마진 설정을 위한 ResizeObserver 설정
