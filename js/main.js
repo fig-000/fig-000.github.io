@@ -32,12 +32,13 @@ const ratioMap = {
         const marginLeftPx = actualWidth * ratioMap[hClass];
         container.style.marginLeft = `-${marginLeftPx}px`;
       });
-      scrollSection.style.opacity = 1;
     });
 
     figureContainers.forEach((container) => {
       ro.observe(container);
     });
+
+    scrollSection.style.opacity = 1;
   }
 
   // z-index 관리
