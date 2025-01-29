@@ -42,6 +42,7 @@ function setupResizeObserver() {
     ro.observe(container);
   });
 }
+
 // z-index 관리
 const containers = document.querySelectorAll(".figure-container");
 const originalZIndexes = new Map();
@@ -61,7 +62,7 @@ function handleScroll(e) {
 
   // 스크롤 위치 계산
   const currentScrollLeft = horizontalSection.scrollLeft;
-  const viewportWidth = horizontalSection.clientWidth;
+  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   const firstContainer = containers[0];
   const lastContainer = containers[containers.length - 1];
 
@@ -91,7 +92,10 @@ function handleTouch(e) {
   if (detailView.classList.contains("flex")) return;
 
   const horizontalSection = document.querySelector("#scroll-section");
-  updateCenteredImage(horizontalSection);
+  // iPad에서의 터치 이벤트 처리 지연
+  requestAnimationFrame(() => {
+    updateCenteredImage(horizontalSection);
+  });
 }
 
 function updateCenteredImage(horizontalSection) {
@@ -117,7 +121,6 @@ function updateCenteredImage(horizontalSection) {
       ).find((span) => span.textContent === figureNumber);
 
       if (footerNumber) {
-        // 이전 centered 클래스 제거
         const prevCentered = footerIndex.querySelector("span.centered");
         if (prevCentered) {
           prevCentered.classList.remove("centered");
