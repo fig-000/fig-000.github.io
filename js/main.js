@@ -1,3 +1,7 @@
+if (history.scrollRestoration) {
+  window.history.scrollRestoration = "manual";
+}
+
 const ratioMap = {
   h60: 0.4,
   h66: 0.145,
@@ -66,6 +70,7 @@ function handleScroll(e) {
   const firstContainer = containers[0];
   const lastContainer = containers[containers.length - 1];
 
+  console.log(firstContainer.offsetLeft);
   const firstContainerCenter =
     firstContainer.offsetLeft + firstContainer.offsetWidth / 2;
   const lastContainerCenter =
@@ -86,12 +91,29 @@ function handleScroll(e) {
 
   updateCenteredImage(horizontalSection);
 }
-
 function handleTouch(e) {
   const detailView = document.querySelector("#detail-view");
   if (detailView.classList.contains("flex")) return;
 
   const horizontalSection = document.querySelector("#scroll-section");
+  
+  // 터치 이벤트에서도 스크롤 제한을 적용
+  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  const firstContainer = containers[0];
+  const lastContainer = containers[containers.length - 1];
+
+  const firstContainerCenter = firstContainer.offsetLeft + firstContainer.offsetWidth / 2;
+  const lastContainerCenter = lastContainer.offsetLeft + lastContainer.offsetWidth / 2;
+
+  const minScroll = firstContainerCenter - viewportWidth / 2;
+  const maxScroll = lastContainerCenter - viewportWidth / 2;
+
+  // 현재 스크롤 위치를 제한 범위 내로 조정
+  horizontalSection.scrollLeft = Math.max(
+    minScroll,
+    Math.min(maxScroll, horizontalSection.scrollLeft)
+  );
+
   // iPad에서의 터치 이벤트 처리 지연
   requestAnimationFrame(() => {
     updateCenteredImage(horizontalSection);
@@ -151,11 +173,13 @@ function updateCenteredImage(horizontalSection) {
 
 // 이벤트 리스너 설정
 window.addEventListener("load", () => {
-  setInitialScroll();
-  setupResizeObserver();
+  requestAnimationFrame(() => {
+    setInitialScroll();
+    setupResizeObserver();
+  });
 });
 
 const scrollSection = document.querySelector("#scroll-section");
 scrollSection.addEventListener("wheel", handleScroll, { passive: false });
 scrollSection.addEventListener("scroll", handleTouch, { passive: true });
-scrollSection.addEventListener("touchmove", handleTouch, { passive: true });
+scrollSection.addEventListener("touchmove", handleTouch, { passive: false }); // passive를 false로 변경
