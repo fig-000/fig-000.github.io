@@ -10,10 +10,13 @@ function setInitialScroll() {
   const scrollSection = document.querySelector("#scroll-section");
   const figureContainers = document.querySelectorAll(".figure-container");
   const firstContainer = figureContainers[0];
-  scrollSection.scrollLeft = window.innerWidth / 2 - 70;
+  
+  // iPad Safari에서의 window.innerWidth 문제 해결
+  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  scrollSection.scrollLeft = viewportWidth / 2 - 70;
 
   const footerIndex = document.querySelector("#footer-index");
-  footerIndex.scrollLeft = window.innerWidth / 2 - 22;
+  footerIndex.scrollLeft = viewportWidth / 2 - 22;
   footerIndex.style.opacity = 1;
 }
 
