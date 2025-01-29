@@ -13,7 +13,6 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
 }
-
 #side-menu {
     position: fixed;
     top: 0;
@@ -27,6 +26,14 @@
     justify-content: start;
     align-items: center;
 }
+
+@media (max-width: 1024px) {
+    #side-menu {
+        right: -313px;
+        width: 313px;
+    }
+}
+
 #side-menu.open {
     right: 0;
 }

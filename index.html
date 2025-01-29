@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>fig.000</title>
     <link rel="stylesheet" href="styles/output.css" />
     <link rel="stylesheet" href="styles/global.css" />
@@ -102,13 +105,15 @@
       </a>
       <div class="hidden md:flex flex-col justify-center items-start gap-[1px]">
         <nav>
-          <ul class="flex gap-[246px] text-[13px]">
+          <ul class="flex gap-[246px] md:gap-[72px] text-[13px]">
             <li><a href="/project" class="hover:underline">PROJECT</a></li>
-            <li><a href="/personal" class="hover:underline">PERSONAL PROJECT</a></li>
+            <li>
+              <a href="/personal" class="hover:underline">PERSONAL PROJECT</a>
+            </li>
             <li><a href="/about" class="hover:underline">ABOUT</a></li>
           </ul>
         </nav>
-        <ul class="hidden gap-[48px] text-[13px]">
+        <ul class="hidden md:gap-[36px] gap-[48px] text-[13px]">
           <li><a class="cursor-pointer hover:underline active">ALL</a></li>
           <li><a class="cursor-pointer hover:underline">FASHION</a></li>
           <li><a class="cursor-pointer hover:underline">LIVING</a></li>
@@ -123,7 +128,9 @@
         id="menu-toggle"
       />
       <div id="side-menu">
-        <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]">PORTFOLIO DOWNLOAD</a>
+        <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]"
+          >PORTFOLIO DOWNLOAD</a
+        >
       </div>
     </header>
 
@@ -178,7 +185,7 @@
           </div>
           <article class="w-full mt-[18px] px-[15px] pb-[78px]">
             <div
-              class="flex justify-between items-start text-[15px] leading-[18px] font-semibold pb-[50px]"
+              class="flex justify-between items-start md:text-[12px] md:leading-[14px] text-[15px] leading-[18px] font-semibold pb-[50px]"
             >
               <div class="w-1/2 flex justify-between items-start">
                 <p class="w-1/2">NACHE<br />NEW SEASON CAMPAIGN</p>
@@ -205,14 +212,14 @@
               </div>
             </div>
             <div
-              class="mt-[49px] text-[15px] font-semibold flex flex-row justify-between"
+              class="mt-[49px] md:text-[12px] text-[15px] font-semibold flex flex-row justify-between"
             >
               <div class="w-1/2 flex flex-row items-center justify-between">
                 <a href="#" class="flex flex-row items-center gap-[4px]">
                   <img
                     src="img/arrow_1.png"
                     alt="arrow"
-                    class="w-[33px] h-auto cursor-pointer"
+                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
                   />
                   PREV
                 </a>
@@ -221,20 +228,20 @@
                   <img
                     src="img/arrow_2.png"
                     alt="arrow"
-                    class="w-[33px] h-auto cursor-pointer"
+                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
               <div class="mt-[10px] flex flex-row items-center justify-between">
                 <a
-                  class="cursor-pointer flex flex-row items-center gap-[20px]"
+                  class="cursor-pointer flex flex-row items-center md:gap-[10px] gap-[20px]"
                   onclick="closeDetail()"
                 >
                   BACK TO LIST
                   <img
                     src="img/x_btn.png"
                     alt="arrow"
-                    class="w-[26px] h-auto cursor-pointer"
+                    class="md:w-[13px] w-[26px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
@@ -244,6 +251,7 @@
       </div>
 
       <div
+        id="detail-view-footer"
         class="w-full h-[58px] bg-white flex justify-center items-center fixed bottom-0 left-0 right-0"
       >
         <div
@@ -346,31 +354,66 @@
           <div style="min-width: 50vw; height: 100%"></div>
           <div class="figure-container h35" style="z-index: 7">
             <p class="figure-number">001</p>
-            <img src="img/001.png" alt="fig.001" class="figure-image" loading="lazy" />
+            <img
+              src="img/001.png"
+              alt="fig.001"
+              class="figure-image"
+              loading="lazy"
+            />
           </div>
           <div class="figure-container h60" style="z-index: 6">
             <p class="figure-number">029</p>
-            <img src="img/029.png" alt="fig.029" class="figure-image" loading="lazy" />
+            <img
+              src="img/029.png"
+              alt="fig.029"
+              class="figure-image"
+              loading="lazy"
+            />
           </div>
           <div class="figure-container h100" style="z-index: 5">
             <p class="figure-number">005</p>
-            <img src="img/005.png" alt="fig.005" class="figure-image" loading="lazy" />
+            <img
+              src="img/005.png"
+              alt="fig.005"
+              class="figure-image"
+              loading="lazy"
+            />
           </div>
           <div class="figure-container h85" style="z-index: 4">
             <p class="figure-number">044</p>
-            <img src="img/044.png" alt="fig.044" class="figure-image" loading="lazy" />
+            <img
+              src="img/044.png"
+              alt="fig.044"
+              class="figure-image"
+              loading="lazy"
+            />
           </div>
           <div class="figure-container h66" style="z-index: 3">
             <p class="figure-number">040</p>
-            <img src="img/040.png" alt="fig.040" class="figure-image" loading="lazy" />
+            <img
+              src="img/040.png"
+              alt="fig.040"
+              class="figure-image"
+              loading="lazy"
+            />
           </div>
           <div class="figure-container h90" style="z-index: 2">
             <p class="figure-number">003</p>
-            <img src="img/003.png" alt="fig.003" class="figure-image" loading="lazy" />
+            <img
+              src="img/003.png"
+              alt="fig.003"
+              class="figure-image"
+              loading="lazy"
+            />
           </div>
           <div class="figure-container h100" style="z-index: 1">
             <p class="figure-number">008</p>
-            <img src="img/008.png" alt="fig.008" class="figure-image" loading="lazy" />
+            <img
+              src="img/008.png"
+              alt="fig.008"
+              class="figure-image"
+              loading="lazy"
+            />
           </div>
           <div style="min-width: 50vw; height: 100%"></div>
         </div>
@@ -484,8 +527,9 @@
 
           // 디테일 뷰 인덱스에서 해당 숫자 찾기
           const detailIndex = document.querySelector("#detail-view-index");
-          const targetSpan = Array.from(detailIndex.querySelectorAll("span"))
-            .find(span => span.textContent === figNum);
+          const targetSpan = Array.from(
+            detailIndex.querySelectorAll("span")
+          ).find((span) => span.textContent === figNum);
 
           if (targetSpan) {
             currentDetailIndex = targetSpan;
@@ -499,19 +543,24 @@
             targetSpan.classList.add("centered");
 
             // 해당 숫자를 화면 중앙으로 스크롤
-            const scrollLeft = targetSpan.offsetLeft - detailIndex.clientWidth / 2 + targetSpan.offsetWidth / 2;
+            const scrollLeft =
+              targetSpan.offsetLeft -
+              detailIndex.clientWidth / 2 +
+              targetSpan.offsetWidth / 2;
             detailIndex.scrollLeft = scrollLeft;
           }
         });
-
       });
 
       function closeDetail() {
         $("#detail-view").removeClass("flex").addClass("hidden");
         $("body").removeClass("overflow-hidden");
       }
-      $("#detail-view-index").on("scroll wheel", function(e) {
-        if (e.type === 'wheel' && Math.abs(e.originalEvent.deltaX) < Math.abs(e.originalEvent.deltaY)) {
+      $("#detail-view-index").on("scroll wheel", function (e) {
+        if (
+          e.type === "wheel" &&
+          Math.abs(e.originalEvent.deltaX) < Math.abs(e.originalEvent.deltaY)
+        ) {
           e.preventDefault();
           const scrollAmount = e.originalEvent.deltaY;
           this.scrollLeft += scrollAmount;
@@ -527,7 +576,8 @@
         // 첫 번째와 마지막 span의 중앙 위치 계산
         const firstSpan = spans[0];
         const lastSpan = spans[spans.length - 1];
-        const firstSpanCenter = firstSpan.offsetLeft + firstSpan.offsetWidth / 2;
+        const firstSpanCenter =
+          firstSpan.offsetLeft + firstSpan.offsetWidth / 2;
         const lastSpanCenter = lastSpan.offsetLeft + lastSpan.offsetWidth / 2;
 
         // 스크롤 제한 설정
@@ -535,12 +585,15 @@
         const maxScroll = lastSpanCenter - viewportWidth / 2;
 
         // 현재 스크롤 위치를 제한 범위 내로 조정
-        detailIndex.scrollLeft = Math.max(minScroll, Math.min(maxScroll, detailIndex.scrollLeft));
+        detailIndex.scrollLeft = Math.max(
+          minScroll,
+          Math.min(maxScroll, detailIndex.scrollLeft)
+        );
 
         let closestSpan = null;
         let minDistance = Infinity;
 
-        spans.forEach(span => {
+        spans.forEach((span) => {
           const spanCenter = span.offsetLeft + span.offsetWidth / 2;
           const distance = Math.abs(spanCenter - centerX);
 
@@ -552,12 +605,12 @@
 
         // 현재 centered 클래스를 가진 span 찾기
         const prevCentered = detailIndex.querySelector("span.centered");
-        
+
         if (closestSpan && minDistance < closestSpan.offsetWidth / 2) {
           if (prevCentered && prevCentered !== closestSpan) {
             prevCentered.classList.remove("centered");
           }
-          if(currentDetailIndex === closestSpan) {
+          if (currentDetailIndex === closestSpan) {
             closestSpan.classList.add("centered");
           }
         } else {

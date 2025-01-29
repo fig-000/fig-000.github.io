@@ -109,17 +109,19 @@
       </a>
       <div class="hidden md:flex flex-col justify-center items-start gap-[1px]">
         <nav>
-          <ul class="flex gap-[246px] text-[13px]">
+          <ul class="flex md:gap-[77px] gap-[246px] text-[13px]">
             <li>
               <a href="/project" class="hover:underline">PROJECT</a>
             </li>
             <li>
-              <a href="/personal" class="hover:underline active">PERSONAL PROJECT</a>
+              <a href="/personal" class="hover:underline active"
+                >PERSONAL PROJECT</a
+              >
             </li>
             <li><a href="/about" class="hover:underline">ABOUT</a></li>
           </ul>
         </nav>
-        <ul class="hidden gap-[48px] text-[13px]" id="category-filter">
+        <ul class="hidden md:gap-[36px] gap-[48px] text-[13px]" id="category-filter">
           <li>
             <a class="cursor-pointer hover:underline active" data-category="ALL"
               >ALL</a
@@ -154,7 +156,9 @@
         id="menu-toggle"
       />
       <div id="side-menu">
-        <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]">PORTFOLIO DOWNLOAD</a>
+        <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]"
+          >PORTFOLIO DOWNLOAD</a
+        >
       </div>
     </header>
 
@@ -168,7 +172,14 @@
         class="relative w-full h-full overflow-y-scroll pb-[20px]"
       >
         <section class="w-full h-full">
-          <video src="/video/v1.mp4" class="w-full h-auto object-cover" autoplay loop muted playsinline></video>
+          <video
+            src="/video/v1.mp4"
+            class="w-full h-auto object-cover"
+            autoplay
+            loop
+            muted
+            playsinline
+          ></video>
           <div class="">
             <img
               src="/img/d1.png"
@@ -194,7 +205,7 @@
           </div>
           <article class="w-full mt-[18px] px-[15px] pb-[78px]">
             <div
-              class="flex justify-between items-start text-[15px] leading-[18px] font-semibold pb-[50px]"
+              class="flex justify-between items-start md:text-[12px] md:leading-[14px] text-[15px] leading-[18px] font-semibold pb-[50px]"
             >
               <div class="w-1/2 flex justify-between items-start">
                 <p class="w-1/2">NACHE<br />NEW SEASON CAMPAIGN</p>
@@ -221,14 +232,14 @@
               </div>
             </div>
             <div
-              class="mt-[49px] text-[15px] font-semibold flex flex-row justify-between"
+              class="mt-[49px] md:text-[12px] text-[15px] font-semibold flex flex-row justify-between"
             >
               <div class="w-1/2 flex flex-row items-center justify-between">
                 <a href="#" class="flex flex-row items-center gap-[4px]">
                   <img
                     src="/img/arrow_1.png"
                     alt="arrow"
-                    class="w-[33px] h-auto cursor-pointer"
+                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
                   />
                   PREV
                 </a>
@@ -237,20 +248,20 @@
                   <img
                     src="/img/arrow_2.png"
                     alt="arrow"
-                    class="w-[33px] h-auto cursor-pointer"
+                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
               <div class="mt-[10px] flex flex-row items-center justify-between">
                 <a
-                  class="cursor-pointer flex flex-row items-center gap-[20px]"
+                  class="cursor-pointer flex flex-row items-center md:gap-[10px] gap-[20px]"
                   onclick="closeDetail()"
                 >
                   BACK TO LIST
                   <img
                     src="/img/x_btn.png"
                     alt="arrow"
-                    class="w-[26px] h-auto cursor-pointer"
+                    class="md:w-[13px] w-[26px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
@@ -355,7 +366,7 @@
       class="w-full h-screen flex justify-center items-center pt-[60px] pb-[58px]"
     >
       <section class="w-full h-full scrollbar-hide overflow-x-auto px-[17px]">
-        <div class="grid grid-cols-2 gap-[10px]">
+        <div class="grid grid-cols-2 md:gap-[5px] gap-[10px]">
           <div
             class="project-item show relative group"
             data-title="NACHE\nNEW SEASON CAMPAIGN"
@@ -371,7 +382,9 @@
             <div
               class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
             >
-              <p class="text-center whitespace-pre-line p-4">THIS IS FIG.000 GUIDE</p>
+              <p class="text-center whitespace-pre-line p-4">
+                THIS IS FIG.000 GUIDE
+              </p>
             </div>
           </div>
           <div
@@ -550,7 +563,7 @@
 
         // 프로젝트 아이템 hover 이벤트 추가
         $(".project-item").hover(
-          function() {
+          function () {
             const num = $(this).data("num");
             const subFooterIndex = document.querySelector("#sub-footer-index");
             const targetSpan = Array.from(
@@ -559,7 +572,8 @@
 
             if (targetSpan) {
               // 이전 centered 클래스 제거
-              const prevCentered = subFooterIndex.querySelector("span.centered");
+              const prevCentered =
+                subFooterIndex.querySelector("span.centered");
               if (prevCentered) {
                 prevCentered.classList.remove("centered");
               }
@@ -579,7 +593,7 @@
               });
             }
           },
-          function() {
+          function () {
             // hover out - centered 클래스 제거
             const subFooterIndex = document.querySelector("#sub-footer-index");
             const centered = subFooterIndex.querySelector("span.centered");
@@ -633,7 +647,7 @@
       if (subFooterIndex) {
         subFooterIndex.scrollLeft = window.innerWidth * 0.5 - 22;
       }
-      
+
       $("#detail-view-index, #sub-footer-index").on(
         "scroll wheel",
         function (e) {

@@ -524,6 +524,9 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .visible {
+    visibility: visible;
+  }
   .absolute {
     position: absolute;
   }
@@ -761,15 +764,6 @@
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
-  .w-\[20px\] {
-    width: 20px;
-  }
-  .w-\[26px\] {
-    width: 26px;
-  }
-  .w-\[33px\] {
-    width: 33px;
-  }
   .w-\[130px\] {
     width: 130px;
   }
@@ -781,6 +775,15 @@
   }
   .w-\[19px\] {
     width: 19px;
+  }
+  .w-\[20px\] {
+    width: 20px;
+  }
+  .w-\[26px\] {
+    width: 26px;
+  }
+  .w-\[33px\] {
+    width: 33px;
   }
   .w-auto {
     width: auto;
@@ -797,15 +800,6 @@
   .min-w-\[17px\] {
     min-width: 17px;
   }
-  .min-w-\[20px\] {
-    min-width: 20px;
-  }
-  .min-w-\[22px\] {
-    min-width: 22px;
-  }
-  .min-w-\[33px\] {
-    min-width: 33px;
-  }
   .min-w-\[50px\] {
     min-width: 50px;
   }
@@ -818,6 +812,9 @@
   .min-w-\[60px\] {
     min-width: 60px;
   }
+  .min-w-\[73px\] {
+    min-width: 73px;
+  }
   .min-w-\[74px\] {
     min-width: 74px;
   }
@@ -827,8 +824,14 @@
   .min-w-\[19px\] {
     min-width: 19px;
   }
-  .min-w-\[73px\] {
-    min-width: 73px;
+  .min-w-\[20px\] {
+    min-width: 20px;
+  }
+  .min-w-\[22px\] {
+    min-width: 22px;
+  }
+  .min-w-\[33px\] {
+    min-width: 33px;
   }
   .min-w-\[130px\] {
     min-width: 130px;
@@ -887,12 +890,6 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
-  .gap-\[10px\] {
-    gap: 10px;
-  }
-  .gap-\[13px\] {
-    gap: 13px;
-  }
   .gap-\[1px\] {
     gap: 1px;
   }
@@ -908,15 +905,6 @@
   .gap-\[20px\] {
     gap: 20px;
   }
-  .gap-\[30px\] {
-    gap: 30px;
-  }
-  .gap-\[48px\] {
-    gap: 48px;
-  }
-  .gap-\[240px\] {
-    gap: 240px;
-  }
   .gap-\[243px\] {
     gap: 243px;
   }
@@ -926,9 +914,6 @@
   .gap-\[246px\] {
     gap: 246px;
   }
-  .gap-\[247px\] {
-    gap: 247px;
-  }
   .gap-\[248px\] {
     gap: 248px;
   }
@@ -937,6 +922,24 @@
   }
   .gap-\[2px\] {
     gap: 2px;
+  }
+  .gap-\[10px\] {
+    gap: 10px;
+  }
+  .gap-\[13px\] {
+    gap: 13px;
+  }
+  .gap-\[30px\] {
+    gap: 30px;
+  }
+  .gap-\[48px\] {
+    gap: 48px;
+  }
+  .gap-\[240px\] {
+    gap: 240px;
+  }
+  .gap-\[247px\] {
+    gap: 247px;
   }
   .overflow-hidden {
     overflow: hidden;
@@ -1038,17 +1041,17 @@
   .pb-\[38px\] {
     padding-bottom: 38px;
   }
-  .pb-\[58px\] {
-    padding-bottom: 58px;
-  }
-  .pb-\[78px\] {
-    padding-bottom: 78px;
-  }
   .pb-\[500px\] {
     padding-bottom: 500px;
   }
   .pb-\[50px\] {
     padding-bottom: 50px;
+  }
+  .pb-\[58px\] {
+    padding-bottom: 58px;
+  }
+  .pb-\[78px\] {
+    padding-bottom: 78px;
   }
   .pl-\[12px\] {
     padding-left: 12px;
@@ -1211,6 +1214,99 @@
   .md\:flex {
     @media (width >= 48rem) {
       display: flex;
+    }
+  }
+  .md\:w-\[13px\] {
+    @media (width >= 48rem) {
+      width: 13px;
+    }
+  }
+  .md\:w-\[17px\] {
+    @media (width >= 48rem) {
+      width: 17px;
+    }
+  }
+  .md\:gap-\[5px\] {
+    @media (width >= 48rem) {
+      gap: 5px;
+    }
+  }
+  .md\:gap-\[10px\] {
+    @media (width >= 48rem) {
+      gap: 10px;
+    }
+  }
+  .md\:gap-\[36px\] {
+    @media (width >= 48rem) {
+      gap: 36px;
+    }
+  }
+  .md\:gap-\[72px\] {
+    @media (width >= 48rem) {
+      gap: 72px;
+    }
+  }
+  .md\:gap-\[76px\] {
+    @media (width >= 48rem) {
+      gap: 76px;
+    }
+  }
+  .md\:gap-\[77px\] {
+    @media (width >= 48rem) {
+      gap: 77px;
+    }
+  }
+  .md\:gap-\[78px\] {
+    @media (width >= 48rem) {
+      gap: 78px;
+    }
+  }
+  .md\:gap-\[80px\] {
+    @media (width >= 48rem) {
+      gap: 80px;
+    }
+  }
+  .md\:gap-\[88px\] {
+    @media (width >= 48rem) {
+      gap: 88px;
+    }
+  }
+  .md\:gap-\[90px\] {
+    @media (width >= 48rem) {
+      gap: 90px;
+    }
+  }
+  .md\:text-\[12px\] {
+    @media (width >= 48rem) {
+      font-size: 12px;
+    }
+  }
+  .md\:text-\[13px\] {
+    @media (width >= 48rem) {
+      font-size: 13px;
+    }
+  }
+  .md\:text-\[22px\] {
+    @media (width >= 48rem) {
+      font-size: 22px;
+    }
+  }
+  .md\:leading-\[14px\] {
+    @media (width >= 48rem) {
+      --tw-leading: 14px;
+      line-height: 14px;
+    }
+  }
+  .md\:leading-\[15\.73px\] {
+    @media (width >= 48rem) {
+      --tw-leading: 15.73px;
+      line-height: 15.73px;
+    }
+  }
+  .md\:leading-\[23\.5px\] {
+    @media (width >= 48rem) {
+      --tw-leading: 23.5px;
+      line-height: 23.5px;
     }
   }
 }
