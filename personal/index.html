@@ -97,14 +97,14 @@
   </head>
   <body>
     <header
-      class="flex justify-between items-start h-[60px] px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
+      class="flex justify-between items-start h-[50px] md:h-[60px] px-[10px] md:px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
       style="z-index: 1001"
     >
       <a href="/">
         <img
           src="/img/logo.png"
           alt="Logo"
-          class="min-w-[108px] w-[108px] h-auto"
+          class="min-w-[88px] w-[88px] h-auto md:min-w-[108px] md:w-[108px]"
         />
       </a>
       <div class="hidden md:flex flex-col justify-center items-start gap-[1px]">
@@ -152,19 +152,42 @@
       <img
         src="/img/o_logo.png"
         alt="Logo"
-        class="min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
+        class="hidden md:block min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
         id="menu-toggle"
       />
+      <a class="md:hidden text-[12px] self-center cursor-pointer" id="mobile-menu-btn">MENU</a>
+      <div id="mobile-menu" class="text-[15px] hidden fixed top-[50px] left-0 w-full h-[calc(100dvh-50px)] bg-white md:hidden">
+        <div class="px-[10px] py-[20px] flex flex-col justify-between h-full">
+          <nav>
+            <ul class="flex flex-col gap-[29px] text-[13px]">
+              <li>
+                <a href="/project" class="hover:underline inline-block pb-[4px]">PROJECT</a>
+                <ul class="flex flex-col gap-[4px] text-[12px]">
+                  <li><a class="cursor-pointer hover:underline">ALL</a></li>
+                  <li><a class="cursor-pointer hover:underline">FASHION</a></li>
+                  <li><a class="cursor-pointer hover:underline">LIVING</a></li>
+                  <li><a class="cursor-pointer hover:underline">BEAUTY</a></li>
+                  <li><a class="cursor-pointer hover:underline">CELEBRITY</a></li>
+                </ul>
+              </li>
+              <li><a href="/personal" class="hover:underline">PERSONAL PROJECT</a></li>
+              <li><a href="/about" class="hover:underline">ABOUT</a></li>
+            </ul>
+          </nav>
+          <div class="w-full">
+            <a href="#" class="portfolio-btn block w-full leading-[38px] h-[38px] border border-black text-center text-[15px]">PORTFOLIO DOWNLOAD</a>
+          </div>
+        </div>
+      </div>
       <div id="side-menu">
         <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]"
           >PORTFOLIO DOWNLOAD</a
         >
       </div>
     </header>
-
     <div
       id="detail-view"
-      class="absolute top-[60px] inset-0 bg-white hidden"
+      class="absolute top-[50px] md:top-[60px] inset-0 bg-white hidden"
       style="z-index: 1000"
     >
       <div
@@ -187,15 +210,15 @@
               class="w-full h-auto object-cover"
             />
           </div>
-          <div class="flex">
-            <div class="w-1/2 h-full">
+          <div class="md:flex block">
+            <div class="md:w-1/2 w-full h-full">
               <img
                 src="/img/d2.png"
                 alt="fig.001"
                 class="w-full h-auto object-cover"
               />
             </div>
-            <div class="w-1/2 h-full">
+            <div class="md:w-1/2 w-full h-full">
               <img
                 src="/img/d3.png"
                 alt="fig.001"
@@ -203,11 +226,11 @@
               />
             </div>
           </div>
-          <article class="w-full mt-[18px] px-[15px] pb-[78px]">
+          <article class="w-full pt-[18px] px-[15px] pb-[78px]">
             <div
-              class="flex justify-between items-start md:text-[12px] md:leading-[14px] text-[15px] leading-[18px] font-semibold pb-[50px]"
+              class="flex flex-col md:flex-row justify-between items-start text-[12px] leading-[14.5px] md:text-[12px] md:leading-[14px] lg:text-[15px] lg:leading-[18px] font-semibold md:pb-[50px]"
             >
-              <div class="w-1/2 flex justify-between items-start">
+              <div class="w-full md:w-1/2 flex justify-between items-start">
                 <p class="w-1/2">NACHE<br />NEW SEASON CAMPAIGN</p>
                 <p class="w-1/2">
                   PHOTO. JANE DOE
@@ -217,7 +240,7 @@
                   ART DIRECTING. fig.000
                 </p>
               </div>
-              <div class="w-1/2">
+              <div class="w-full md:w-1/2 mt-8 md:mt-0">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                   cursus felis eget massa tincidunt, sed rhoncus ligula
@@ -232,27 +255,33 @@
               </div>
             </div>
             <div
-              class="mt-[49px] md:text-[12px] text-[15px] font-semibold flex flex-row justify-between"
+              class="mt-[49px] text-[12px] lg:text-[15px] font-semibold flex flex-row justify-between"
             >
-              <div class="w-1/2 flex flex-row items-center justify-between">
-                <a href="#" class="flex flex-row items-center gap-[4px]">
+              <div class="w-full md:w-1/2 flex flex-row items-center justify-between">
+                <a href="#" class="flex flex-row items-center gap-[8px]">
                   <img
                     src="/img/arrow_1.png"
                     alt="arrow"
-                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
+                    class="w-[24px] md:w-[17px] lg:w-[33px] h-auto cursor-pointer"
                   />
                   PREV
+                </a>
+                <a
+                  class="cursor-pointer md:hidden flex-1 text-center"
+                  onclick="closeDetail()"
+                >
+                  BACK TO LIST
                 </a>
                 <a href="#" class="flex flex-row items-center gap-[8px]">
                   NEXT
                   <img
                     src="/img/arrow_2.png"
                     alt="arrow"
-                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
+                    class="w-[24px] md:w-[17px] lg:w-[33px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
-              <div class="mt-[10px] flex flex-row items-center justify-between">
+              <div class="mt-[10px] flex-row items-center justify-between hidden md:flex">
                 <a
                   class="cursor-pointer flex flex-row items-center md:gap-[10px] gap-[20px]"
                   onclick="closeDetail()"
@@ -261,7 +290,7 @@
                   <img
                     src="/img/x_btn.png"
                     alt="arrow"
-                    class="md:w-[13px] w-[26px] h-auto cursor-pointer"
+                    class="md:w-[13px] lg:w-[26px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
@@ -365,8 +394,8 @@
     <main
       class="w-full h-full flex justify-center items-center pt-[60px] pb-[58px]"
     >
-      <section class="w-full h-full scrollbar-hide overflow-x-auto px-[17px]">
-        <div class="grid grid-cols-2 md:gap-[5px] gap-[10px]">
+      <section class="w-full h-full scrollbar-hide overflow-x-auto px-[10px] md:px-[17px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[5px] lg:gap-[10px]">
           <div
             class="project-item show relative group"
             data-title="NACHE\nNEW SEASON CAMPAIGN"
@@ -380,7 +409,7 @@
               loading="lazy"
             />
             <div
-              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+              class="absolute inset-0 flex items-center justify-center text-white md:text-black md:opacity-0 group-hover:opacity-100 transition-opacity text-[12px] leading-[13px] md:text-[14px] md:leading-[17px] lg:text-[25px] lg:leading-[23px]"
             >
               <p class="text-center whitespace-pre-line p-4">
                 THIS IS FIG.000 GUIDE
@@ -400,7 +429,7 @@
               loading="lazy"
             />
             <div
-              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+              class="absolute inset-0 flex items-center justify-center text-white md:text-black md:opacity-0 group-hover:opacity-100 transition-opacity text-[12px] leading-[13px] md:text-[14px] md:leading-[17px] lg:text-[25px] lg:leading-[23px]"
             >
               <p class="text-center whitespace-pre-line p-4">2</p>
             </div>
@@ -418,7 +447,7 @@
               loading="lazy"
             />
             <div
-              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+              class="absolute inset-0 flex items-center justify-center text-white md:text-black md:opacity-0 group-hover:opacity-100 transition-opacity text-[12px] leading-[13px] md:text-[14px] md:leading-[17px] lg:text-[25px] lg:leading-[23px]"
             >
               <p class="text-center whitespace-pre-line p-4">3</p>
             </div>
@@ -436,7 +465,7 @@
               loading="lazy"
             />
             <div
-              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+              class="absolute inset-0 flex items-center justify-center text-white md:text-black md:opacity-0 group-hover:opacity-100 transition-opacity text-[12px] leading-[13px] md:text-[14px] md:leading-[17px] lg:text-[25px] lg:leading-[23px]"
             >
               <p class="text-center whitespace-pre-line p-4">4</p>
             </div>
@@ -645,7 +674,8 @@
 
       const subFooterIndex = document.querySelector("#sub-footer-index");
       if (subFooterIndex) {
-        subFooterIndex.scrollLeft = window.innerWidth * 0.5 - 22;
+        const isMobile = window.innerWidth <= 768;
+        subFooterIndex.scrollLeft = window.innerWidth * 0.5 - (isMobile ? 10 : 22);
       }
 
       $("#detail-view-index, #sub-footer-index").on(

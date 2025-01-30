@@ -89,19 +89,24 @@
       ul li a.active {
         text-decoration: underline;
       }
-      
+
+      @media (max-width: 768px) {
+        .figure-number {
+          font-size: 20px;
+        }
+      }
     </style>
   </head>
   <body>
     <header
-      class="flex justify-between items-start h-[60px] px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
+      class="flex justify-between items-start h-[50px] md:h-[60px] px-[10px] md:px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
       style="z-index: 1001"
     >
       <a href="/">
         <img
-          src="img/logo.png"
+          src="/img/logo.png"
           alt="Logo"
-          class="min-w-[108px] w-[108px] h-auto"
+          class="min-w-[88px] w-[88px] h-auto md:min-w-[108px] md:w-[108px]"
         />
       </a>
       <div class="hidden md:flex flex-col justify-center items-start gap-[1px]">
@@ -125,9 +130,33 @@
       <img
         src="/img/o_logo.png"
         alt="Logo"
-        class="min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
+        class="hidden md:block min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
         id="menu-toggle"
       />
+      <a class="md:hidden text-[12px] self-center cursor-pointer" id="mobile-menu-btn">MENU</a>
+      <div id="mobile-menu" class="text-[15px] hidden fixed top-[50px] left-0 w-full h-[calc(100dvh-50px)] bg-white md:hidden">
+        <div class="px-[10px] py-[20px] flex flex-col justify-between h-full">
+          <nav>
+            <ul class="flex flex-col gap-[29px] text-[13px]">
+              <li>
+                <a href="/project" class="hover:underline inline-block pb-[4px]">PROJECT</a>
+                <ul class="flex flex-col gap-[4px] text-[12px]">
+                  <li><a class="cursor-pointer hover:underline">ALL</a></li>
+                  <li><a class="cursor-pointer hover:underline">FASHION</a></li>
+                  <li><a class="cursor-pointer hover:underline">LIVING</a></li>
+                  <li><a class="cursor-pointer hover:underline">BEAUTY</a></li>
+                  <li><a class="cursor-pointer hover:underline">CELEBRITY</a></li>
+                </ul>
+              </li>
+              <li><a href="/personal" class="hover:underline">PERSONAL PROJECT</a></li>
+              <li><a href="/about" class="hover:underline">ABOUT</a></li>
+            </ul>
+          </nav>
+          <div class="w-full">
+            <a href="#" class="portfolio-btn block w-full leading-[38px] h-[38px] border border-black text-center text-[15px]">PORTFOLIO DOWNLOAD</a>
+          </div>
+        </div>
+      </div>
       <div id="side-menu">
         <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]"
           >PORTFOLIO DOWNLOAD</a
@@ -137,7 +166,7 @@
 
     <div
       id="detail-view"
-      class="absolute top-[60px] inset-0 bg-white hidden"
+      class="absolute top-[50px] md:top-[60px] inset-0 bg-white hidden"
       style="z-index: 1000"
     >
       <div
@@ -145,15 +174,15 @@
         class="relative w-full h-full overflow-y-scroll pb-[20px]"
       >
         <section class="w-full h-full">
-          <div class="flex">
-            <div class="w-1/2 h-full">
+          <div class="md:flex block">
+            <div class="md:w-1/2 w-full h-full">
               <img
                 src="/img/PJ-DETAIL-1.png"
                 alt="fig.001"
                 class="w-full h-auto object-cover"
               />
             </div>
-            <div class="w-1/2 h-full">
+            <div class="md:w-1/2 w-full h-full">
               <img
                 src="/img/PJ-DETAIL-2.png"
                 alt="fig.001"
@@ -161,15 +190,15 @@
               />
             </div>
           </div>
-          <div class="flex">
-            <div class="w-1/2 h-full">
+          <div class="md:flex block">
+            <div class="md:w-1/2 w-full h-full">
               <img
                 src="/img/PJ-DETAIL-3.png"
                 alt="fig.001"
                 class="w-full h-auto object-cover"
               />
             </div>
-            <div class="w-1/2 h-full">
+            <div class="md:w-1/2 w-full h-full">
               <img
                 src="/img/PJ-DETAIL-4.png"
                 alt="fig.001"
@@ -184,11 +213,11 @@
               class="w-full h-auto object-cover"
             />
           </div>
-          <article class="w-full mt-[18px] px-[15px] pb-[78px]">
+          <article class="w-full pt-[18px] px-[15px] pb-[78px]">
             <div
-              class="flex justify-between items-start md:text-[12px] md:leading-[14px] text-[15px] leading-[18px] font-semibold pb-[50px]"
+              class="flex flex-col md:flex-row justify-between items-start text-[12px] leading-[14.5px] md:text-[12px] md:leading-[14px] lg:text-[15px] lg:leading-[18px] font-semibold md:pb-[50px]"
             >
-              <div class="w-1/2 flex justify-between items-start">
+              <div class="w-full md:w-1/2 flex justify-between items-start">
                 <p class="w-1/2">NACHE<br />NEW SEASON CAMPAIGN</p>
                 <p class="w-1/2">
                   PHOTO. JANE DOE
@@ -198,7 +227,7 @@
                   ART DIRECTING. fig.000
                 </p>
               </div>
-              <div class="w-1/2">
+              <div class="w-full md:w-1/2 mt-8 md:mt-0">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                   cursus felis eget massa tincidunt, sed rhoncus ligula
@@ -213,36 +242,43 @@
               </div>
             </div>
             <div
-              class="mt-[49px] md:text-[12px] text-[15px] font-semibold flex flex-row justify-between"
+              class="mt-[49px] text-[12px] lg:text-[15px] font-semibold flex flex-row justify-between"
             >
-              <div class="w-1/2 flex flex-row items-center justify-between">
-                <a href="#" class="flex flex-row items-center gap-[4px]">
+              <div class="w-full md:w-1/2 flex flex-row items-center justify-between">
+                <a href="#" class="flex flex-row items-center gap-[8px]">
                   <img
-                    src="img/arrow_1.png"
+                    src="/img/arrow_1.png"
                     alt="arrow"
-                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
+                    class="w-[24px] md:w-[17px] lg:w-[33px] h-auto cursor-pointer"
                   />
                   PREV
+                </a>
+
+                <a
+                  class="cursor-pointer md:hidden flex-1 text-center"
+                  onclick="closeDetail()"
+                >
+                  BACK TO LIST
                 </a>
                 <a href="#" class="flex flex-row items-center gap-[8px]">
                   NEXT
                   <img
-                    src="img/arrow_2.png"
+                    src="/img/arrow_2.png"
                     alt="arrow"
-                    class="md:w-[17px] w-[33px] h-auto cursor-pointer"
+                    class="w-[24px] md:w-[17px] lg:w-[33px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
-              <div class="mt-[10px] flex flex-row items-center justify-between">
+              <div class="mt-[10px] flex-row items-center justify-between hidden md:flex">
                 <a
                   class="cursor-pointer flex flex-row items-center md:gap-[10px] gap-[20px]"
                   onclick="closeDetail()"
                 >
                   BACK TO LIST
                   <img
-                    src="img/x_btn.png"
+                    src="/img/x_btn.png"
                     alt="arrow"
-                    class="md:w-[13px] w-[26px] h-auto cursor-pointer"
+                    class="md:w-[13px] lg:w-[26px] h-auto cursor-pointer"
                   />
                 </a>
               </div>
@@ -345,69 +381,41 @@
       </div>
     </div>
     <main
-      class="w-full h-full flex justify-center items-center pt-[60px] pb-[58px]"
+      class="w-full h-full flex justify-center items-center pt-[50px] md:pt-[60px] pb-[58px]"
     >
       <section
         id="scroll-section"
-        class="w-full h-full scrollbar-hide overflow-x-auto pt-[31px] pb-[38px] pl-[13px] opacity-0"
+        class="w-full h-full scrollbar-hide overflow-x-auto pt-[38px] md:pt-[31px] pb-[38px] pl-[13px] opacity-0"
       >
         <div class="flex flex-rows w-full h-full items-end">
           <div style="min-width: 50vw; height: 100%"></div>
           <div class="figure-container h35" style="z-index: 7">
             <p class="figure-number">001</p>
-            <img
-              src="img/001.png"
-              alt="fig.001"
-              class="figure-image"
-            />
+            <img src="/img/001.png" alt="fig.001" class="figure-image" />
           </div>
           <div class="figure-container h60" style="z-index: 6">
             <p class="figure-number">029</p>
-            <img
-              src="img/029.png"
-              alt="fig.029"
-              class="figure-image"
-            />
+            <img src="/img/029.png" alt="fig.029" class="figure-image" />
           </div>
           <div class="figure-container h100" style="z-index: 5">
             <p class="figure-number">005</p>
-            <img
-              src="img/005.png"
-              alt="fig.005"
-              class="figure-image"
-            />
+            <img src="/img/005.png" alt="fig.005" class="figure-image" />
           </div>
           <div class="figure-container h85" style="z-index: 4">
             <p class="figure-number">044</p>
-            <img
-              src="img/044.png"
-              alt="fig.044"
-              class="figure-image"
-            />
+            <img src="/img/044.png" alt="fig.044" class="figure-image" />
           </div>
           <div class="figure-container h66" style="z-index: 3">
             <p class="figure-number">040</p>
-            <img
-              src="img/040.png"
-              alt="fig.040"
-              class="figure-image"
-            />
+            <img src="/img/040.png" alt="fig.040" class="figure-image" />
           </div>
           <div class="figure-container h90" style="z-index: 2">
             <p class="figure-number">003</p>
-            <img
-              src="img/003.png"
-              alt="fig.003"
-              class="figure-image"
-            />
+            <img src="/img/003.png" alt="fig.003" class="figure-image" />
           </div>
           <div class="figure-container h100" style="z-index: 1">
             <p class="figure-number">008</p>
-            <img
-              src="img/008.png"
-              alt="fig.008"
-              class="figure-image"
-            />
+            <img src="/img/008.png" alt="fig.008" class="figure-image" />
           </div>
           <div style="min-width: 50vw; height: 100%"></div>
         </div>

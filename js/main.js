@@ -20,7 +20,8 @@ function setInitialScroll() {
   scrollSection.scrollLeft = viewportWidth / 2 - 70;
 
   const footerIndex = document.querySelector("#footer-index");
-  footerIndex.scrollLeft = viewportWidth / 2 - 22;
+  const isMobile = window.innerWidth <= 768;
+  footerIndex.scrollLeft = viewportWidth / 2 - (isMobile ? 10 : 22);
   footerIndex.style.opacity = 1;
 }
 
@@ -70,7 +71,6 @@ function handleScroll(e) {
   const firstContainer = containers[0];
   const lastContainer = containers[containers.length - 1];
 
-  console.log(firstContainer.offsetLeft);
   const firstContainerCenter =
     firstContainer.offsetLeft + firstContainer.offsetWidth / 2;
   const lastContainerCenter =

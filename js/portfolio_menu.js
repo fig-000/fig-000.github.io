@@ -12,4 +12,9 @@ function portfolio_menu() {
     $(document).click(function () {
       $("#side-menu").removeClass("open");
     });
+
+    $('#mobile-menu-btn').click(function() {
+      $('#mobile-menu').toggleClass('hidden');
+      $(this).text($('#mobile-menu').hasClass('hidden') ? 'MENU' : 'CLOSE');
+    });
 }

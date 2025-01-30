@@ -97,14 +97,14 @@
   </head>
   <body>
     <header
-      class="flex justify-between items-start h-[60px] px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
+      class="flex justify-between items-start h-[50px] md:h-[60px] px-[10px] md:px-[20px] py-[10px] fixed top-0 left-0 right-0 bg-white"
       style="z-index: 1001"
     >
       <a href="/">
         <img
           src="/img/logo.png"
           alt="Logo"
-          class="min-w-[108px] w-[108px] h-auto"
+          class="min-w-[88px] w-[88px] h-auto md:min-w-[108px] md:w-[108px]"
         />
       </a>
       <div class="hidden md:flex flex-col justify-center items-start gap-[1px]">
@@ -150,9 +150,33 @@
       <img
         src="/img/o_logo.png"
         alt="Logo"
-        class="min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
+        class="hidden md:block min-w-[19px] w-[19px] h-auto cursor-pointer z-1000"
         id="menu-toggle"
       />
+      <a class="md:hidden text-[12px] self-center cursor-pointer" id="mobile-menu-btn">MENU</a>
+      <div id="mobile-menu" class="text-[15px] hidden fixed top-[50px] left-0 w-full h-[calc(100dvh-50px)] bg-white md:hidden">
+        <div class="px-[10px] py-[20px] flex flex-col justify-between h-full">
+          <nav>
+            <ul class="flex flex-col gap-[29px] text-[13px]">
+              <li>
+                <a href="/project" class="hover:underline inline-block pb-[4px]">PROJECT</a>
+                <ul class="flex flex-col gap-[4px] text-[12px]">
+                  <li><a class="cursor-pointer hover:underline">ALL</a></li>
+                  <li><a class="cursor-pointer hover:underline">FASHION</a></li>
+                  <li><a class="cursor-pointer hover:underline">LIVING</a></li>
+                  <li><a class="cursor-pointer hover:underline">BEAUTY</a></li>
+                  <li><a class="cursor-pointer hover:underline">CELEBRITY</a></li>
+                </ul>
+              </li>
+              <li><a href="/personal" class="hover:underline">PERSONAL PROJECT</a></li>
+              <li><a href="/about" class="hover:underline">ABOUT</a></li>
+            </ul>
+          </nav>
+          <div class="w-full">
+            <a href="#" class="portfolio-btn block w-full leading-[38px] h-[38px] border border-black text-center text-[15px]">PORTFOLIO DOWNLOAD</a>
+          </div>
+        </div>
+      </div>
       <div id="side-menu">
         <a href="#" class="portfolio-btn text-[13px] underline pl-[12px]">PORTFOLIO DOWNLOAD</a>
       </div>
@@ -160,10 +184,10 @@
 
     <main class="w-full h-full flex justify-center items-center pt-[60px]">
       <section
-        class="w-full h-full px-[17px] pt-[10px] flex flex-row gap-[20px]"
+        class="w-full h-full px-[17px] pt-[10px] flex flex-col md:flex-row md:gap-[20px] gap-[40px]"
       >
-        <div class="w-3/5">
-          <p class="md:text-[22px] md:leading-[23.5px] text-[30px] leading-[32px]" style="font-weight: 600">
+        <div class="w-full md:w-3/5">
+          <p class="text-[15px] leading-[16px] md:text-[22px] md:leading-[23.5px] lg:text-[30px] lg:leading-[32px]" style="font-weight: 600">
             fig.000 is a creative studio specializing in art direction, fashion
             styling, and set design in photography. Rooted in the concept of
             "fig.," which represents figures, shapes, and the process of
@@ -174,7 +198,7 @@
             creativity.
           </p>
         </div>
-        <div class="w-2/5 md:text-[13px] md:leading-[15.73px] text-[16px] leading-[20px] uppercase">
+        <div class="w-full md:w-2/5 text-[15px] leading-[18px] md:text-[13px] md:leading-[15.73px] lg:text-[16px] lg:leading-[20px] uppercase">
           <span class="" style="font-weight: 600">ADDRESS</span><br />
           25, Dongho-ro 34-gil, Jung-gu, Seoul<br />
           <a href="https://www.instagram.com/fig.000" target="_blank">
