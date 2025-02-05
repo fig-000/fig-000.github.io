@@ -2,6 +2,30 @@ if (history.scrollRestoration) {
   window.history.scrollRestoration = "manual";
 }
 
+function easeInOutQuad(t) {
+  return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+function smoothScrollTo(element, target, duration) {
+  const start = element.scrollLeft;
+  const change = target - start;
+  let startTime = null;
+
+  function animateScroll(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);  // 0 ~ 1 사이의 값
+
+    element.scrollLeft = start + change * easeInOutQuad(progress);
+
+    if (elapsed < duration) {
+      window.requestAnimationFrame(animateScroll);
+    }
+  }
+
+  window.requestAnimationFrame(animateScroll);
+}
+
 const ratioMap = {
   h60: 0.4,
   h66: 0.145,
@@ -14,9 +38,12 @@ function setInitialScroll() {
   const scrollSection = document.querySelector("#scroll-section");
   const figureContainers = document.querySelectorAll(".figure-container");
   const firstContainer = figureContainers[0];
-  
+
   // iPad Safari에서의 window.innerWidth 문제 해결
-  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  const viewportWidth = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
+  );
   scrollSection.scrollLeft = viewportWidth / 2 - 70;
 
   const footerIndex = document.querySelector("#footer-index");
@@ -33,7 +60,9 @@ function setupResizeObserver() {
   const ro = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
       const container = entry.target;
-      const hClass = Array.from(container.classList).find((cls) => /^h\d+$/.test(cls));
+      const hClass = Array.from(container.classList).find((cls) =>
+        /^h\d+$/.test(cls)
+      );
       if (!hClass || !ratioMap[hClass]) return;
 
       const actualWidth = container.offsetWidth;
@@ -67,7 +96,10 @@ function handleScroll(e) {
 
   // 스크롤 위치 계산
   const currentScrollLeft = horizontalSection.scrollLeft;
-  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  const viewportWidth = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
+  );
   const firstContainer = containers[0];
   const lastContainer = containers[containers.length - 1];
 
@@ -96,14 +128,19 @@ function handleTouch(e) {
   if (detailView.classList.contains("flex")) return;
 
   const horizontalSection = document.querySelector("#scroll-section");
-  
+
   // 터치 이벤트에서도 스크롤 제한을 적용
-  const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  const viewportWidth = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
+  );
   const firstContainer = containers[0];
   const lastContainer = containers[containers.length - 1];
 
-  const firstContainerCenter = firstContainer.offsetLeft + firstContainer.offsetWidth / 2;
-  const lastContainerCenter = lastContainer.offsetLeft + lastContainer.offsetWidth / 2;
+  const firstContainerCenter =
+    firstContainer.offsetLeft + firstContainer.offsetWidth / 2;
+  const lastContainerCenter =
+    lastContainer.offsetLeft + lastContainer.offsetWidth / 2;
 
   const minScroll = firstContainerCenter - viewportWidth / 2;
   const maxScroll = lastContainerCenter - viewportWidth / 2;
@@ -153,10 +190,8 @@ function updateCenteredImage(horizontalSection) {
           footerNumber.offsetLeft -
           footerIndex.clientWidth / 2 +
           footerNumber.offsetWidth / 2;
-        footerIndex.scrollTo({
-          left: footerScrollLeft,
-          behavior: "smooth",
-        });
+
+          smoothScrollTo(footerIndex, footerScrollLeft, 600);
       }
     } else {
       container.style.zIndex = originalZIndexes.get(container);
